@@ -1,0 +1,13 @@
+.checkout {
+    width: 100px;
+}
+
+.checkout-img {
+    width: 120px;
+}
+
+.table-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
