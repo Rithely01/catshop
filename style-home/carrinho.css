@@ -1,3 +1,4 @@
+/* Estilos específicos da tabela do carrinho */
 .checkout {
     width: 100px;
 }
@@ -6,8 +7,21 @@
     width: 120px;
 }
 
-.table-elements {
+.table-elements { /* Essa classe não parece estar sendo usada no HTML do carrinho que você enviou. */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+/* Ajustes para o h1 no cabeçalho do carrinho, se necessário */
+/* Note que o CSS comum já define .navbar e .navbar h1.
+   Se o h1 no carrinho precisar de um alinhamento diferente,
+   você pode sobrescrever aqui. No seu HTML do carrinho, você
+   tem <h1>Carrinho</h1>. Se quiser centralizá-lo, o estilo do
+   common.css deve ser suficiente, mas se houver outro comportamento
+   desejado, ajuste aqui. */
+.navbar h1 {
+    margin: 0; /* Reseta o margin auto do common.css se for preciso */
+    flex-grow: 0; /* Reseta o flex-grow se for preciso */
+}
+

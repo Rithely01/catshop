@@ -1,99 +1,53 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-html, body {
-   overflow-x: hidden;
-}
-
-body {
+/* Estilos da Vitrine de Produtos */
+.vitrine {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff;
-    min-height: 100vh;
-}
-
-/* ----------- NAVBAR ----------- */
-.navbar {
-    background-color: #D6D2E8;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding: 0 15px;
+    max-width: 1200px;
     width: 100%;
-    color: rgb(241, 241, 241);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    position: relative;
-    box-shadow: 5px 5px 5px #858585 ;
 }
 
-.navbar h1 {
-    font-family: "Oswald", sans-serif;
-    font-size: 2rem;
-    margin: 0;
+.card {
+    width: 220px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
 }
 
-.navbar input {
-    margin: 10px;
-    padding: 8px 12px 8px 25px ;
-    border: none;
-    border-radius: 20px;
-    outline: none;
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
 }
 
-.search-box{
-    position: relative;
-    display: inline-block;
+.card p {
+    color: #252525;
+    margin-bottom: 5px;
+    font-size: 1rem;
 }
 
-.search-box i {
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translateY(-50%);
-    color: #3257a1;
-    pointer-events: none;
+.card p:last-of-type {
+    font-weight: bold;
+    color: #10181d;
+    font-size: 1.1rem;
 }
 
-
-.menu {
-    position: relative;
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-.menu a {
-    color: #000000;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.menu a:hover {
-    transform: scale(1.05);
-}
-
-.lista-header {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 6px;
-    padding: 8px;
-}
-
-.lista-header li {
-    position: relative;
-}
-
-.hamburguer {
-    display: none;
-    font-size: 1.8rem;
-    z-index: 100;
-}
-
-
-/* ----------- CATEGORIAS ----------- */
+/* Contêiner dos botões de categoria */
 .category-buttons-container {
     display: flex;
     flex-wrap: wrap;
@@ -106,6 +60,7 @@ body {
     margin-bottom: 40px;
 }
 
+/* Estilo individual do botão de categoria */
 .category-button {
     background-color: #FDF2FF;
     border-radius: 12px;
@@ -133,67 +88,77 @@ body {
     height: 70px;
     object-fit: contain;
     margin-right: 20px;
+    margin-bottom: 0px;
 }
 
 .category-button p {
     color: #a582ae;
     font-weight: bold;
     font-size: 1.3rem;
+    margin: 0;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
-/* ----------- VITRINE ----------- */
-.vitrine {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    padding: 0 15px;
-    max-width: 1200px;
+/* Media Queries para ajustar o layout dos botões em telas menores */
+@media screen and (max-width: 900px) {
+    .category-buttons-container {
+        gap: 15px;
+    }
+
+    .category-button {
+        flex-basis: calc(50% - 7.5px); 
+        max-width: calc(50% - 7.5px);
+        padding: 15px 20px;
+        min-width: unset;
+    }
+
+    .category-button .button-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
+    }
+    .category-button p {
+        font-size: 1.1rem;
+    }
 }
 
-.card {
-    width: 220px;
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 20px;
+.container {
+    max-width: 100%; /* Permite que o contêiner ocupe 100% da largura */
+    padding-left: 0;  /* Remove o padding padrão do Bootstrap nas laterais */
+    padding-right: 0; /* Remove o padding padrão do Bootstrap nas laterais */
 }
 
-.card:hover {
-    transform: scale(1.03);
-    box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.3);
+@media screen and (max-width: 550px) {
+    .category-buttons-container {
+        padding: 20px 10px;
+        gap: 10px;
+    }
+    .category-button {
+        flex-basis: calc(100% - 20px);
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px 20px;
+    }
+    .category-button .button-icon {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    .category-button p {
+        font-size: 1rem;
+    }
 }
 
-.card img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
+/* Responsividade da Vitrine para telas menores */
+@media screen and (max-width: 703px) {
+    .vitrine {
+        gap: 15px;
+        justify-content: center;
+    }
 
-.card p {
-    color: #252525;
-    margin-bottom: 5px;
-    font-size: 1rem;
-}
-
-.card p:last-of-type {
-    font-weight: bold;
-    color: #10181d;
-    font-size: 1.1rem;
-}
-
-/* ----------- FOOTER ----------- */
-footer {
-    width: 100%;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 20px 0;
-    margin-top: auto;
+    .card {
+        width: 160px;
+    }
 }
